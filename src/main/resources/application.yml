@@ -1,0 +1,23 @@
+server:
+  port: 3030
+spring:
+  application:
+    name: local-award-service
+  datasource:
+    url: jdbc:h2:mem:testdb
+    data-username: sa
+    data-password:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        generate_statistics: true
+        jdbc:
+          batch_size: 100
+        order_inserts: true
+        order_updates: true
+
+
+

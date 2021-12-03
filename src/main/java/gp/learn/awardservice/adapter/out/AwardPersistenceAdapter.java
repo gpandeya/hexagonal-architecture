@@ -15,6 +15,7 @@ public class AwardPersistenceAdapter implements CreateAwardPort, LoadAwardPort, 
 
     AwardMapper awardMapper;
 
+
     public AwardPersistenceAdapter(AwardRepository awardRepository, AwardMapper awardMapper) {
         this.awardRepository = awardRepository;
         this.awardMapper = awardMapper;

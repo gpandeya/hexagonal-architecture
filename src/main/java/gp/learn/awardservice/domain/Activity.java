@@ -6,6 +6,9 @@ public class Activity {
     private Long activityMasterId;
     private boolean completed;
 
+    public Activity(){
+
+    }
     private Activity(Long id, Long activityMasterId, boolean completed) {
         this.id = id;
         this.activityMasterId = activityMasterId;
@@ -25,6 +28,22 @@ public class Activity {
     }
     public void restartActivity(){
         this.completed=false;
+    }
+
+    public Long getActivityMasterId() {
+        return activityMasterId;
+    }
+
+    public void setActivityMasterId(Long activityMasterId) {
+        this.activityMasterId = activityMasterId;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 
     @Override

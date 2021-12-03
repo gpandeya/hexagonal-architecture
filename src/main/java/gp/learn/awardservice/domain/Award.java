@@ -44,6 +44,14 @@ public class Award {
         activities.addAll(inActivities);
     }
 
+    public List<Activity> getActivities() {
+        return activities;
+    }
+
+    public void setActivities(List<Activity> activities) {
+        this.activities = activities;
+    }
+
     @Override
     public String toString() {
         return "Award{" +

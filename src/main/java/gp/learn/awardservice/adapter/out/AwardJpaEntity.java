@@ -1,9 +1,10 @@
 package gp.learn.awardservice.adapter.out;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import gp.learn.awardservice.domain.Activity;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="award")
@@ -14,6 +15,14 @@ public class AwardJpaEntity {
     private Long id;
 
     private String ndcNumber;
+
+    @OneToMany(
+            fetch = FetchType.LAZY,
+            orphanRemoval = true,
+            mappedBy = "awardJpaEntity",
+            cascade = CascadeType.ALL)
+    private List<ActivityJpaEntity> activities = new ArrayList<>();
+
 
     public Long getId() {
         return id;
@@ -30,4 +39,15 @@ public class AwardJpaEntity {
     public void setNdcNumber(String ndcNumber) {
         this.ndcNumber = ndcNumber;
     }
+
+    public List<ActivityJpaEntity> getActivities() {
+        return activities;
+    }
+
+    public void setActivities(List<ActivityJpaEntity> activities) {
+        activities.forEach(activity -> activity.setAwardJpaEntity(this));
+        this.activities = activities;
+    }
+
+
 }

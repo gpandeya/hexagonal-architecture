@@ -94,6 +94,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>award-service</finalName>
 	</build>
 
 </project>

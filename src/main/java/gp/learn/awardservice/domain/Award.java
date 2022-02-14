@@ -18,6 +18,8 @@ public class Award {
 
     private List<Activity> activities = new ArrayList<>();
 
+    List<AbstractActivity> abstractActivities = new ArrayList<>();
+
     public Long getId() {
         return id;
     }
@@ -52,12 +54,23 @@ public class Award {
         this.activities = activities;
     }
 
+    public List<AbstractActivity> getAbstractActivities() {
+        return abstractActivities;
+    }
+
+    public void setAbstractActivities(List<AbstractActivity> inAbstractActivities) {
+        logger.info("abstractActivities : {}", abstractActivities);
+        abstractActivities.clear();
+        abstractActivities.addAll(inAbstractActivities);
+       // this.abstractActivities = abstractActivities;
+    }
+
     @Override
     public String toString() {
         return "Award{" +
                 "id=" + id +
                 ", ndcNumber=" + ndcNumber +
-                ", activities=" + activities +
+                ", abstractActivities=" + abstractActivities +
                 '}';
     }
 }

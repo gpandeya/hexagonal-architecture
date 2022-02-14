@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: award-service
+  name: award-svc
+  namespace: default
+spec:
+  ports:
+  - nodePort: 30702
+    port: 3030
+    protocol: TCP
+    targetPort: 3030
+  selector:
+    app: award-service
+  sessionAffinity: None
+  type: LoadBalancer

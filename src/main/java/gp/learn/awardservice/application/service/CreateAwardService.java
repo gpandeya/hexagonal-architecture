@@ -33,9 +33,11 @@ public class CreateAwardService implements CreateAwardUseCase {
         logger.info("create award request{}", newAwardDTO);
         Award award = awardMapper.fromDtoToDomain(newAwardDTO);
         award.validate();
-        assignActivitiesToAwardUseCase.assignActivities(award);
-        logger.info("award - > {}", award);
-        return createAccountPort.createAward(award);
 
+        logger.info("award - > {}", award);
+        Award created =  createAccountPort.createAward(award);
+        assignActivitiesToAwardUseCase.assignActivities(created);
+        logger.info("created award - > {}", created);
+        return created;
     }
 }

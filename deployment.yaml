@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: award-service
+  name: award-service
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: award-service
+  template:
+      metadata:
+        labels:
+          app: award-service
+      spec:
+        containers:
+        - image: gpandeya/award-service
+          imagePullPolicy: IfNotPresent
+          name: award-service
+        restartPolicy: Always
+        terminationGracePeriodSeconds: 30
+
+
